@@ -1,0 +1,23 @@
+/* src/App.css */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0; /* Light mode background color */
+  color: #333;
+}
+
+header {
+  background-color: #fff; /* Light mode header background color */
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.country-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+/* Add more styles as needed */
