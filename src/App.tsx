@@ -10,6 +10,10 @@ interface Country {
   population: number;
   capital: string;
   region: string;
+  flags: {
+    svg: string;
+    png: string;
+  };
   // Add more properties as needed
 }
 
@@ -49,38 +53,42 @@ const App: React.FC = () => {
     <div className="App">
       <header>
         <h1>Country Explorer</h1>
-        <label htmlFor="search">Search: </label>
-        <input
-          type="text"
-          id="search"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          onInput={filterCountries}
-        />
-        <select
-          id="region"
-          value={selectedRegion}
-          onChange={(e) => {
-            setSelectedRegion(e.target.value);
-            filterCountries();
-          }}
-        >
-          <option value="">All Regions</option>
-          <option value="Africa">Africa</option>
-          <option value="Americas">Americas</option>
-          <option value="Asia">Asia</option>
-          <option value="Europe">Europe</option>
-          <option value="Oceania">Oceania</option>
-        </select>
+        <label htmlFor="search">
+          <input
+            type="text"
+            id="search"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onInput={filterCountries}
+          />
+          <select
+            id="region"
+            value={selectedRegion}
+            onChange={(e) => {
+              setSelectedRegion(e.target.value);
+              filterCountries();
+            }}
+          >
+            <option value="">All Regions</option>
+            <option value="Africa">Africa</option>
+            <option value="Americas">Americas</option>
+            <option value="Asia">Asia</option>
+            <option value="Europe">Europe</option>
+            <option value="Oceania">Oceania</option>
+          </select>
+        </label>
       </header>
 
       <div id="countries-list">
         {filteredCountries.map((country) => (
           <div key={country.name.common} className="country-card">
+            <img src={country.flags.svg} alt={`${country.name.common} Flag`} />
+            <div className="details">
             <h2>{country.name.common}</h2>
             <p>Population: {country.population}</p>
             <p>Capital: {country.capital}</p>
             <p>Region: {country.region}</p>
+            </div>
             {/* Add more details as needed */}
           </div>
         ))}

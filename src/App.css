@@ -9,15 +9,54 @@ header {
   background-color: #fff; /* Light mode header background color */
   padding: 10px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
 
+label{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+label input{
+  border: 1px solid rgb(219, 210, 210);
+  width: 20%;
+  height: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f5eeee;
+}
+
 .country-card {
   border: 1px solid #ccc;
-  padding: 10px;
+  /* padding: 10px; */
   margin: 10px;
   border-radius: 5px;
 }
 
-/* Add more styles as needed */
+.details{
+  padding:0 10px;
+}
+
+.search {
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+#countries-list{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 35px ;
+  width: 100%;
+  /* padding: 0 60px; */
+}
+
+.country-card{
+  width: 100%;
+}
+
+.country-card img{
+  width: 100%;
+}
