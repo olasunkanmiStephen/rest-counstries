@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
+import Navbar from './Components/Navbar';
 
 interface Country {
   name: {
@@ -51,6 +52,7 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
+      <Navbar />
       <header>
         <h1>Country Explorer</h1>
         <label htmlFor="search">
