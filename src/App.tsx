@@ -1,8 +1,8 @@
 // src/App.tsx
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import './App.css';
-import Navbar from './Components/Navbar';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "./App.css";
+import Navbar from "./Components/Navbar";
 
 interface Country {
   name: {
@@ -21,8 +21,8 @@ interface Country {
 const App: React.FC = () => {
   const [countries, setCountries] = useState<Country[]>([]);
   const [filteredCountries, setFilteredCountries] = useState<Country[]>([]);
-  const [searchTerm, setSearchTerm] = useState<string>('');
-  const [selectedRegion, setSelectedRegion] = useState<string>('');
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [selectedRegion, setSelectedRegion] = useState<string>("");
 
   useEffect(() => {
     fetchData();
@@ -30,21 +30,27 @@ const App: React.FC = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get<Country[]>('https://restcountries.com/v3.1/all');
+      const response = await axios.get<Country[]>(
+        "https://restcountries.com/v3.1/all"
+      );
       setCountries(response.data);
       setFilteredCountries(response.data);
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error("Error fetching data:", error);
     }
   };
 
   const filterCountries = () => {
+    
+
     let filtered = countries.filter((country) =>
       country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     if (selectedRegion) {
-      filtered = filtered.filter((country) => country.region.includes(selectedRegion));
+      filtered = filtered.filter((country) =>
+        country.region.includes(selectedRegion)
+      );
     }
 
     setFilteredCountries(filtered);
@@ -86,12 +92,11 @@ const App: React.FC = () => {
           <div key={country.name.common} className="country-card">
             <img src={country.flags.svg} alt={`${country.name.common} Flag`} />
             <div className="details">
-            <h2>{country.name.common}</h2>
-            <p>Population: {country.population}</p>
-            <p>Capital: {country.capital}</p>
-            <p>Region: {country.region}</p>
+              <h2>{country.name.common}</h2>
+              <p>Population: {country.population}</p>
+              <p>Capital: {country.capital}</p>
+              <p>Region: {country.region}</p>
             </div>
-            {/* Add more details as needed */}
           </div>
         ))}
       </div>
