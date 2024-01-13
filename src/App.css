@@ -1,7 +1,7 @@
 /* src/App.css */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f0f0f0; /* Light mode background color */
+  background-color: #f0f0f0; 
   color: #333;
 }
 
@@ -11,7 +11,7 @@ body.dark-mode {
 }
 
 header {
-  background-color: #fff; /* Light mode header background color */
+  background-color: inherit; 
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -70,9 +70,27 @@ label input{
 }
 
 .country-card{
-  width: 100%;
+  width: 90%;
 }
 
 .country-card img{
   width: 100%;
+}
+
+@media (max-width: 860px) {
+  #countries-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 35px ;
+    width: 100%;
+    /* padding: 0 60px; */
+  }
+  
+  .country-card{
+    width: 90%;
+  }
+  
+  .country-card img{
+    width: 100%;
+  }
 }

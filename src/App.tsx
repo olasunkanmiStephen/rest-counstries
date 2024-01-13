@@ -68,6 +68,7 @@ const App: React.FC = () => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             onInput={filterCountries}
+            placeholder="Search Country"
           />
           <select
             id="region"
